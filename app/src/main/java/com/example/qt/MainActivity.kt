@@ -1,6 +1,7 @@
 package com.example.qt
 
 
+import android.os.Build
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.speech.tts.UtteranceProgressListener
@@ -9,6 +10,7 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.RequiresApi
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableIntStateOf
@@ -26,6 +28,7 @@ class MainActivity : ComponentActivity() {
     private val emotion : MutableState<Int> =  mutableIntStateOf(R.raw.qt_neutral)
     private val isStoryWork : MutableState<Boolean> =  mutableStateOf(false)
     private var remainingSentences = 0
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        enableEdgeToEdge()
@@ -66,9 +69,6 @@ class MainActivity : ComponentActivity() {
                     backgrounds = backgrounds,
                     onStop = {
                         textToSpeech.stop()
-                    },
-                    onResume = {
-
                     },
                     isStoryWork = isStoryWork,
                 ){story ->

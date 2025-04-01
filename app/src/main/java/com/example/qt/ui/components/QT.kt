@@ -38,8 +38,6 @@ import com.example.qt.R
 import com.example.qt.models.Story
 
 
-//TODO WHEN THE TEXT IS FINISHED , DISABLE THE STOP BUTTON
-
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
 fun QT(modifier: Modifier = Modifier,
@@ -47,7 +45,6 @@ fun QT(modifier: Modifier = Modifier,
        emotion: MutableState<Int>,
        backgrounds: List<Int>,
        onStop: () -> Unit,
-       onResume: () -> Unit,
        isStoryWork: MutableState<Boolean>,
        onClick : (List<Pair<String, String>>) -> Unit) {
     var isListBackgroundShown by remember {
@@ -121,15 +118,6 @@ fun QT(modifier: Modifier = Modifier,
                         contentDescription = "choices",
                         tint = Color.Unspecified)
                 }
-//                IconButton(
-//                    onClick = {
-//                        isStoryWork.value = false;
-//                        onResume() },
-//                    modifier = Modifier) {
-//                    Icon(painter = painterResource(id = R.drawable.ic_quit),
-//                        contentDescription = "choices",
-//                        tint = Color.Unspecified)
-//                }
             }
 
             if (isListBackgroundShown) {
