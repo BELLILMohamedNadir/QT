@@ -70,13 +70,6 @@ fun RobotEmotion(
                         setSpeed(1f)
                         start()
 
-//                        // Use coroutine to wait until GIF finishes (only if it's NOT talking)
-//                        if (currentEmotion != R.raw.qt_talking) {
-//                            CoroutineScope(Dispatchers.Main).launch {
-//                                delay(duration * loopCount.toLong()) // Wait for GIF to finish
-//                                emotion.value = R.raw.qt_talking // Reset or return to neutral
-//                            }
-//                        }
                     }
                     gifView.setImageDrawable(newDrawable)
 
@@ -92,7 +85,7 @@ fun RobotEmotion(
             ,
             modifier = Modifier
                 .width(114.dp)
-                .padding(bottom = 29.dp, end = 45.dp)
+                .padding(bottom = (26.9).dp, end = 46.dp)
         )
         Spacer(modifier = Modifier.height(150.dp))
     }
